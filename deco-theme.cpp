@@ -56,7 +56,7 @@ cairo_surface_t*decoration_theme_t::render_text(std::string text,
     auto surface = cairo_image_surface_create(format, width, height);
     auto cr = cairo_create(surface);
 
-    const float font_scale = 0.75;
+    const float font_scale = 0.65;
     const float font_size  = height * font_scale;
 
     // render text
