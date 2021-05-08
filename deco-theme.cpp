@@ -58,6 +58,7 @@ cairo_surface_t*decoration_theme_t::render_text(std::string text,
 
     const float font_scale = 0.65;
     const float font_size  = height * font_scale;
+    float fact_width = width + 3. * height;
 
     // render text
     cairo_select_font_face(cr, ((std::string)font).c_str(),
@@ -67,7 +68,7 @@ cairo_surface_t*decoration_theme_t::render_text(std::string text,
     cairo_set_font_size(cr, font_size);
     cairo_text_extents(cr, text.c_str(), &te);
     // cairo_move_to(cr, int(width / 2), font_size);
-    cairo_move_to(cr, int(width / 2. - te.width / 2.),
+    cairo_move_to(cr, int(fact_width / 2. - te.width / 3.),
             font_size);
 
     cairo_text_extents_t ext;
