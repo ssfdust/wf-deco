@@ -4,6 +4,7 @@ project('wf-decoration', ['cpp'], version: '0.0.1', license: 'Unlicense',
 add_project_arguments(['-DWLR_USE_UNSTABLE'], language: ['cpp', 'c'])
 
 wlroots        = dependency('wlroots', fallback: ['wlroots', 'wlroots'])
+gtkmm          = dependency('gtkmm-3.0', version: '>=3.24')
 cairo          = dependency('cairo')
 libinput       = dependency('libinput', version: '>=1.7.0')
 pixman         = dependency('pixman-1')
@@ -13,8 +14,8 @@ wfconfig       = dependency('wf-config')
 
 decoration = shared_module('decoration',
     ['decoration.cpp', 'deco-subsurface.cpp', 'deco-button.cpp',
-      'deco-layout.cpp', 'deco-theme.cpp'],
-    dependencies: [wlroots, pixman, wfconfig, cairo],
+      'deco-layout.cpp', 'deco-theme.cpp', 'deco-icon.cpp', 'gtk-utils.cpp'],
+    dependencies: [wlroots, pixman, wfconfig, cairo, gtkmm],
     install: true,
     install_dir: join_paths(get_option('libdir'), 'wayfire'))
 

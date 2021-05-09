@@ -12,7 +12,7 @@ namespace decor
 
 cairo_text_extents_t te;
 /** Create a new theme with the default parameters */
-decoration_theme_t::decoration_theme_t()
+decoration_theme_t::decoration_theme_t(std::string app_id)
 {}
 
 /** @return The available height for displaying the title */
